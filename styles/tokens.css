@@ -55,7 +55,7 @@
   --heat-5: #34d399;
 
   /* Typography */
-  --font-sans:   -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-sans:   "Aptos", "Calibri", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
   --font-mono:   ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
 
   /* Spatial */
