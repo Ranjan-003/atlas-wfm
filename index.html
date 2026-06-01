@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280">
+  <title>Atlas WFM — Workforce Intelligence Platform</title>
+  <meta name="description" content="Enterprise Workforce Management platform: forecasting, capacity, scheduling, intraday, AI deflection, AI copilot.">
+
+  <!-- ============== Styles ============== -->
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23f3b85b'/><text x='50%25' y='56%25' font-family='-apple-system,sans-serif' font-size='18' font-weight='700' fill='%230a0d12' text-anchor='middle' dominant-baseline='middle'>A</text></svg>">
+
+  <!-- Theme init — runs before <body> to avoid flash of wrong theme -->
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('atlas-theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        }
+      } catch (_) {}
+    })();
+  </script>
+</head>
+<body>
+  <!-- Loading splash (replaced by app.js boot) — uses CSS vars so it themes correctly -->
+  <div id="bootSplash" style="height:100vh;display:grid;place-items:center;color:var(--fg-2);font-family:system-ui;background:var(--bg-0)">
+    <div style="text-align:center">
+      <div style="width:48px;height:48px;border-radius:8px;background:var(--accent);color:var(--accent-fg);display:grid;place-items:center;font-family:ui-monospace,monospace;font-weight:700;font-size:24px;margin:0 auto 16px">A</div>
+      <div style="font-size:14px;color:var(--fg-0);font-weight:500;margin-bottom:4px">Atlas WFM</div>
+      <div style="font-size:12px;color:var(--fg-2)">Initializing workforce intelligence…</div>
+    </div>
+  </div>
+
+  <!-- ============== Scripts (load order is critical) ============== -->
+
+  <!-- 1. UI primitives (icons → charts → components) -->
+  <script src="src/ui/icons.js"></script>
+  <script src="src/ui/charts.js"></script>
+  <script src="src/ui/components.js"></script>
+
+  <!-- 2. Math engines (independent of each other except deflection→capacity) -->
+  <!-- Forecasting is split into 4 modules under /src/engines/forecasting/ -->
+  <script src="src/engines/forecasting/stats.js"></script>
+  <script src="src/engines/forecasting/models.js"></script>
+  <script src="src/engines/forecasting/selector.js"></script>
+  <script src="src/engines/forecasting/engine.js"></script>
+  <script src="src/engines/forecasting.js"></script>
+  <script src="src/engines/capacity.js"></script>
+  <script src="src/engines/deflection.js"></script>
+
+  <!-- 3. Data layer (depends on engines for headcount computation) -->
+  <script src="src/data/parser.js"></script>
+  <script src="src/data/detector.js"></script>
+  <script src="src/data/transformer.js"></script>
+  <script src="src/data/validator.js"></script>
+  <script src="src/data/csv.js"></script>
+  <script src="src/data/sources.js"></script>
+  <script src="src/data/regions.js"></script>
+  <script src="src/data/products.js"></script>
+  <script src="src/data/vault.js"></script>
+  <script src="src/data/seed.js"></script>
+
+  <!-- 4. State store -->
+  <script src="src/state.js"></script>
+
+  <!-- 4b. RBAC — users, roles, permissions -->
+  <script src="src/rbac.js"></script>
+
+  <!-- 5. AI Copilot (depends on engines) -->
+  <script src="src/copilot/copilot.js"></script>
+
+  <!-- 6. Modules (depend on UI + engines + state) -->
+  <script src="src/modules/dashboard.js"></script>
+  <script src="src/modules/forecasting.js"></script>
+  <script src="src/modules/capacity.js"></script>
+  <script src="src/modules/scenarios.js"></script>
+  <script src="src/modules/deflection.js"></script>
+  <script src="src/modules/analytics.js"></script>
+  <script src="src/modules/data-studio.js"></script>
+  <script src="src/modules/wizard.js"></script>
+  <script src="src/modules/regions.js"></script>
+  <script src="src/modules/products.js"></script>
+  <script src="src/modules/admin.js"></script>
+
+  <!-- 7. App shell — boots on DOMContentLoaded -->
+  <script src="src/app.js"></script>
+</body>
+</html>

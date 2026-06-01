@@ -1,0 +1,147 @@
+/* =========================================================
+ * Design tokens — Atlas WFM
+ * Aesthetic: deep midnight base, warm amber accent, hairline
+ * dividers, tabular-monospace numbers. No gradients-as-decoration.
+ * ========================================================= */
+:root, :root[data-theme="dark"] {
+  /* Surfaces */
+  --bg-0:        #0a0d12;   /* app canvas */
+  --bg-1:        #0f131a;   /* panel */
+  --bg-2:        #141923;   /* card */
+  --bg-3:        #1b2230;   /* hover / raised */
+  --bg-inset:    #070a0e;   /* sunken (inputs, grid wells) */
+
+  /* Borders */
+  --border:      #1f2733;   /* hairline */
+  --border-strong:#2a3344;
+  --border-soft: #161c25;
+
+  /* Text */
+  --fg-0:        #e7ecf3;   /* primary */
+  --fg-1:        #b8c1cf;   /* secondary */
+  --fg-2:        #7c8699;   /* tertiary / labels */
+  --fg-3:        #4a5468;   /* faint / placeholders */
+
+  /* Brand & accent */
+  --accent:      #f3b85b;   /* amber — boardroom signal */
+  --accent-dim:  #b78340;
+  --accent-fg:   #0a0d12;   /* text on accent buttons */
+  --accent-bg:   rgba(243,184,91,0.08);
+
+  /* Data palette (chart series) */
+  --c-cyan:      #5eead4;
+  --c-blue:      #60a5fa;
+  --c-violet:    #a78bfa;
+  --c-pink:      #f472b6;
+  --c-amber:     #f3b85b;
+  --c-lime:      #a3e635;
+
+  /* Status */
+  --ok:          #34d399;
+  --ok-bg:       rgba(52,211,153,0.10);
+  --warn:        #fbbf24;
+  --warn-bg:     rgba(251,191,36,0.10);
+  --danger:      #f87171;
+  --danger-bg:   rgba(248,113,113,0.10);
+  --info:        #60a5fa;
+  --info-bg:     rgba(96,165,250,0.10);
+
+  /* Heatmap palette (low → high) */
+  --heat-0: #5a1f1f;
+  --heat-1: #7a3e2e;
+  --heat-2: #a0683c;
+  --heat-3: #a89055;
+  --heat-4: #5e8b66;
+  --heat-5: #34d399;
+
+  /* Typography */
+  --font-sans:   -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:   ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
+
+  /* Spatial */
+  --space-1:     4px;
+  --space-2:     8px;
+  --space-3:     12px;
+  --space-4:     16px;
+  --space-5:     24px;
+  --space-6:     32px;
+  --space-7:     48px;
+
+  /* Radii — tight, almost CAD-like */
+  --r-1:         3px;
+  --r-2:         6px;
+  --r-3:         10px;
+
+  /* Elevation */
+  --shadow-1:    0 1px 0 rgba(255,255,255,0.02) inset, 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-2:    0 8px 24px rgba(0,0,0,0.5);
+
+  /* Motion */
+  --t-fast:      120ms cubic-bezier(0.2, 0, 0, 1);
+  --t-med:       220ms cubic-bezier(0.2, 0, 0, 1);
+
+  /* Layout */
+  --sidebar-w:   232px;
+  --topbar-h:    52px;
+  --copilot-w:   420px;
+}
+
+/* =========================================================
+ * Light mode — cream/paper palette with deeper amber accent
+ * Mirror of dark mode token-for-token; SVG charts theme themselves.
+ * ========================================================= */
+:root[data-theme="light"] {
+  /* Surfaces — warm cream, not pure white */
+  --bg-0:        #f4f1e9;   /* app canvas */
+  --bg-1:        #fbfaf5;   /* panel */
+  --bg-2:        #ffffff;   /* card (pure white pops against canvas) */
+  --bg-3:        #ede9dc;   /* hover / raised */
+  --bg-inset:    #efebde;   /* sunken */
+
+  /* Borders */
+  --border:      #d8d2bf;
+  --border-strong:#b8b09a;
+  --border-soft: #e8e3d2;
+
+  /* Text */
+  --fg-0:        #1a1810;   /* primary */
+  --fg-1:        #3d3a2c;   /* secondary */
+  --fg-2:        #6e6a58;   /* tertiary */
+  --fg-3:        #a39e89;   /* faint */
+
+  /* Brand & accent — deeper amber for contrast on light */
+  --accent:      #b07a1e;   /* deeper amber */
+  --accent-dim:  #8a5e15;
+  --accent-fg:   #ffffff;   /* white text on darker amber */
+  --accent-bg:   rgba(176,122,30,0.10);
+
+  /* Data palette — desaturated/darker for light bg readability */
+  --c-cyan:      #0d9488;
+  --c-blue:      #2563eb;
+  --c-violet:    #7c3aed;
+  --c-pink:      #db2777;
+  --c-amber:     #b07a1e;
+  --c-lime:      #4d7c0f;
+
+  /* Status — deeper saturations */
+  --ok:          #047857;
+  --ok-bg:       rgba(4,120,87,0.08);
+  --warn:        #b45309;
+  --warn-bg:     rgba(180,83,9,0.08);
+  --danger:      #b91c1c;
+  --danger-bg:   rgba(185,28,28,0.08);
+  --info:        #1d4ed8;
+  --info-bg:     rgba(29,78,216,0.08);
+
+  /* Heatmap palette — cream to deep green */
+  --heat-0: #f4d1c5;
+  --heat-1: #e8a583;
+  --heat-2: #d68548;
+  --heat-3: #c6a955;
+  --heat-4: #7ca069;
+  --heat-5: #2f7d32;
+
+  /* Softer shadows on light */
+  --shadow-1:    0 1px 0 rgba(255,255,255,0.6) inset, 0 1px 2px rgba(60,40,10,0.06);
+  --shadow-2:    0 8px 24px rgba(60,40,10,0.12);
+}
